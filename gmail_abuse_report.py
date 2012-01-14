@@ -112,7 +112,10 @@ class ReportableMsg(object):
     """
     body = []
     for el in payload:
-      body.append(el.as_string())
+      if type(el) == str:
+        body.append(el)
+      else:
+        body.append(el.as_string())
 
     return ''.join(body)
 
